@@ -27,15 +27,18 @@
 
     <body>
     <script>
+
+    function call(){
     let myDB = firebase.database();
     myDB.ref("dictionary").once('value', ss =>{
         alert(ss.val());
     });
+    }
     </script>
-    
+
     <div id="game">
         <h1>demo</h1>
-        <button>Button</button>
+        <button onClick="call()">Button</button>
     </div>
 
 
