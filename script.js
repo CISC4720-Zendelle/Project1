@@ -103,7 +103,7 @@ console.log("arr called");
 //Take in user input
 var inputBox = document.getElementById("guess");
 inputBox.addEventListener("keyup", function(event){
-  if(event.key === 13){
+  if(event.key == "Enter"){
     var guess = document.getElementById("guess");
     // addToList(document.getElementById("guesses"),guess.value)
     $("#guesses").empty();
