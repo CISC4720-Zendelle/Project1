@@ -1,66 +1,42 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en" >
 <head>
+  <meta charset="UTF-8">
+  <title>CodePen - Text-Twist Clone</title>
+  <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
 
 
-    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
 
-
-    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
-
-    <script src="index.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xregexp/3.2.0/xregexp-all.min.js"></script>
-
-<script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyC9qJK4fFFxwSOuXx8gGVk_cR7TcWBPNDA",
-      authDomain: "cisc472-p1.firebaseapp.com",
-      databaseURL: "https://cisc472-p1.firebaseio.com",
-      projectId: "cisc472-p1",
-      storageBucket: "cisc472-p1.appspot.com",
-      messagingSenderId: "770846068960",
-      appId: "1:770846068960:web:53fe764829f5a7c2cfc085"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-  </script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 </head>
-
-    <body>
-    
-
+<body>
+<!-- partial:index.partial.html -->
 <div class="container" id="game">
-    <div class="row my-3"> 
-     <h1 id="STARTERS">Text Twist</h1>
-    </div>
-   <div class="row">
-      <ol id="pwords">  
-     </ol>
+   <div class="row my-3"> 
+    <h1 id="STARTERS">Text Twist</h1>
    </div>
-   
-   <div class="row">
-      <input id="guess" type="text" placeholder="type guesses here">     </input>
-   </div>
-   
- <button onclick='generateWord()'>Generate word</button>  
- 
-   <div>
-     <ul id="guesses">
-     </ul>
-   </div>
- 
- </div> 
- 
- 
- 
- 
-    </body>
+  <div class="row">
+     <ol id="pwords">  
+    </ol>
+  </div>
+  
+  <div class="row">
+     <input id="guess" type="text" placeholder="type guesses here">     </input>
+  </div>
+  
+<button onclick='generateWord()'>Generate word</button>  
 
+  <div>
+    <ul id="guesses">
+    </ul>
+  </div>
+
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/xregexp/3.2.0/xregexp-all.min.js'></script><script  src="./script.js"></script>
+
+</body>
 </html>
