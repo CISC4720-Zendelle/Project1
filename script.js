@@ -17,6 +17,7 @@ let myDB = firebase.database();
 let wordList = document.getElementById("pwords");
 var regexFilter = /[a-z]/g;
 var filler = "0";
+var correctCount = 0;
 
 myDB.ref("starting").on("value", ss =>{
 let status = ss.val();
@@ -48,19 +49,30 @@ if(flag != null){
 })
 
 //Fills Guess list
-myDB.ref("guesses").on("value", ss => {
-let guesses = ss.val();
-if (guesses != null){
-  for(guess in guesses){
-    addToList(document.getElementById("guesses"),guesses[guess]);
-  }
+myDB.ref("guesses").on("value", function(snapshot){
+
+ snapshot.forEach(function (openSnapshot) {
+    console.log(openSnapshot.key); // The random key.
+    var val = openSnapshot.val();
+    console.log(val.guess);
+    console.log(val.match);
+   if(val.match == true){correctCount++};
+   addToList(document.getElementById("guesses"),val.guess, val.match);
+   
+
+ });
+
+if(correctCount == count){
+  myDB.ref("starting").set(0);
+  document.getElementById("btn").disabled = false;
 }
-})
+});
 
 //Clears list
 $('button').click(function() {
 $('ol').empty();
 $('ul').empty();
+correctCount = 0;
 myDB.ref("guesses").set(null);
 });
 
@@ -68,6 +80,9 @@ myDB.ref("guesses").set(null);
 //Generate a new word
 function generateWord(){
   myDB.ref("starting").set(1);
+  myDB.ref("starting").once("value", ss3 =>{
+    if(ss3.val() == 1){document.getElementById("btn").disabled = true;}
+  })
   myDB.ref("dictionary").child("numstarters").once('value', ss =>{
     let rackcount = parseInt(ss.val());
     let randomrack= parseInt(Math.floor(rackcount*Math.random()));
@@ -86,10 +101,14 @@ function generateWord(){
 
 
 
-function addToList(parent,input){
+function addToList(parent,input,match){
 var listElement = document.createElement("li");
 var text = document.createTextNode(input);
 listElement.appendChild(document.createTextNode(input));
+if(match == true && parent.id == "guesses") {
+  listElement.style.backgroundColor = "green";
+}
+
 parent.appendChild(listElement);
 }
 
@@ -103,7 +122,7 @@ console.log("arr called");
 //Take in user input
 var inputBox = document.getElementById("guess");
 inputBox.addEventListener("keyup", function(event){
-  if(event.key == "Enter"){
+  if(event.code == "Enter"){
     var guess = document.getElementById("guess");
     // addToList(document.getElementById("guesses"),guess.value)
     $("#guesses").empty();
