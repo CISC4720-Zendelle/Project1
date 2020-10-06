@@ -1,14 +1,14 @@
-var firebaseConfig = {
-  apiKey: "AIzaSyB_Y6QJLh1F8fxiMpVf5VdgHvwwITi0dDo",
-  authDomain: "cisc472-p1-e1fe1.firebaseapp.com",
-  databaseURL: "https://cisc472-p1-e1fe1.firebaseio.com",
-  projectId: "cisc472-p1-e1fe1",
-  storageBucket: "cisc472-p1-e1fe1.appspot.com",
-  messagingSenderId: "353024829045",
-  appId: "1:353024829045:web:45063d7a372b15c4d97a3c"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+// var firebaseConfig = {
+//   apiKey: "AIzaSyB_Y6QJLh1F8fxiMpVf5VdgHvwwITi0dDo",
+//   authDomain: "cisc472-p1-e1fe1.firebaseapp.com",
+//   databaseURL: "https://cisc472-p1-e1fe1.firebaseio.com",
+//   projectId: "cisc472-p1-e1fe1",
+//   storageBucket: "cisc472-p1-e1fe1.appspot.com",
+//   messagingSenderId: "353024829045",
+//   appId: "1:353024829045:web:45063d7a372b15c4d97a3c"
+// };
+// // Initialize Firebase
+// firebase.initializeApp(firebaseConfig);
 
 let gameData;
 var wordsarr = [];
